@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour{
+    [SerializeField]
+    private Animator animator;
     private Rigidbody2D playerBody;
 
     [SerializeField]
@@ -36,6 +38,8 @@ public class PlayerMovement : MonoBehaviour{
     }
 
     void MovePlayer(){
+        animator.SetFloat("walk", Mathf.Abs(playerXdir));
+
         playerBody.velocity = new Vector2(moveSpeed*playerXdir, playerBody.velocity.y);
 
         if(facingRight && playerXdir<0){
@@ -47,7 +51,6 @@ public class PlayerMovement : MonoBehaviour{
 
     void Jump(){
         if(Input.GetKeyDown(KeyCode.Space) && canJump && jumpCount<maxJumpLimit){
-            // playerBody.velocity = new Vector2(playerBody.velocity.x, jumpHeight);
             playerBody.AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
 
             jumpCount++;

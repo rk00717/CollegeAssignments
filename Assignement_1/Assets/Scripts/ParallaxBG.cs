@@ -1,3 +1,5 @@
+// Script Referenced by @Dani yt
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +16,6 @@ public class ParallaxBG : MonoBehaviour{
     private float offsetParam;
     
     void Start(){
-        // parallaxEffect *= -1;
         initialPos = cameraPos.position.x;
         spriteLength = GetComponent<SpriteRenderer>().bounds.size.x - offsetParam;
     }
