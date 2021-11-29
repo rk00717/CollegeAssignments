@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour{
-    [SerializeField]
     private Animator animator;
     private Rigidbody2D playerBody;
 
@@ -26,6 +25,7 @@ public class PlayerMovement : MonoBehaviour{
     public bool facingRight = true;
 
     void Awake(){
+        animator = GetComponent<Animator>();
         playerBody = GetComponent<Rigidbody2D>();
     }
 
